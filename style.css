@@ -1,0 +1,208 @@
+@font-face {
+    font-family: "Work-Sans-Bold";
+    /* src: url('assets/fonts/static/WorkSans-Regular.ttf'); */
+    src: url('assets/fonts/static/WorkSans-Bold.ttf');
+
+}
+
+@font-face {
+    font-family: "Work-Sans-Regular";
+    src: url('assets/fonts/static/WorkSans-Regular.ttf');
+}
+
+@font-face {
+    font-family: "Work-Sans";
+    src: url('assets/fonts/WorkSans-VariableFont_wght.ttf');
+}
+
+/* || ROOT VARIABLES */
+
+:root {
+    --LIGHT-PINK: hsl(275, 100%, 97%);
+    --WHITE: hsl(0, 0%, 100%);
+    --GRAYISH-PURPLE: hsl(292, 16%, 49%);
+    --DARK-PURPLE: hsl(292, 42%, 14%);
+    --PURPLE: hsl(292, 62%, 60%);
+    --GRAY:#a5a5a5;
+    --BACKROUND-MOBIE: url('assets/images/background-pattern-mobile.svg');
+    --BACKROUND-DESKTOP: url('assets/images/background-pattern-desktop.svg');
+    --BACKROUND: var(--BACKROUND-MOBIE);
+}
+
+
+/* || RESET CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    padding: 2em 1em;
+    display: block;
+    font-family: inherit;
+    font-size:inherit;
+}
+
+span{
+    font-family: inherit;
+    font-size:inherit;
+}
+
+/* || GENERAL STYLES */
+
+html {
+    font-family: "Work-Sans", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--LIGHT-PINK);
+
+}
+
+body::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 190px;
+    background-image: var(--BACKROUND);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    z-index: -1;
+
+}
+
+
+main {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.faq_container {
+    margin: 100px 0;
+    background: var(--WHITE);
+    color: var(--DARK-PURPLE);
+    width: min(540px, 87%);
+    border-radius: 9px;
+    padding: 1em 1.3em;
+    box-shadow: 0px 20px 55px -30px #9f9f9f;
+}
+
+.faq_header {
+    display: flex;
+    align-items: center;
+    column-gap: 0.7em;
+    margin: 0.2em 0;
+    font-size: 1.7em;
+}
+
+.faq_header .star_icon {
+    height: 0.8em;
+}
+
+.faq_header .title {
+    font-weight: 700;
+}
+
+.question_container .question{
+    font-size: 0.8rem;
+    font-weight: 900;
+}
+.question_container .question:not(:last-child) {
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.question_container .question>.q_header {
+    cursor: pointer;
+    background-color: var(--WHITE);
+    width: 100%;
+    padding: 1.2em 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: left;
+    color: inherit;
+}
+.question_container .question>.q_header:is(:hover,:focus){
+    color:var(--PURPLE);
+}
+
+.question_container .question>.q_header .title {
+    width: 70%;
+}
+
+.question_container .question>.q_header::after {
+    display: block;
+    content: url('assets/images/icon-plus.svg');
+}
+
+.question_container .question.open>.q_header::after {
+    display: block;
+    content: url('assets/images/icon-minus.svg');
+}
+
+.question_container .question .answer_container {
+    overflow: hidden;
+    color: var(--GRAYISH-PURPLE);
+    font-family: 'Work-Sans-Regular', sans-serif;
+    font-size: 0.9em;
+    font-weight: 400;
+    transition: all 0.4s ease;
+
+}
+
+.question_container .question .answer_container>.text {
+    padding-bottom: 1.3em;
+}
+
+.question_container .question:not(.open) .answer_container {
+    height: 0 !important;
+    padding: 0;
+    margin: 0;
+
+}
+
+
+
+/* || Medium screen size */
+@media screen and (min-width:768px) {
+    :root{
+        --BACKROUND: var(--BACKROUND-DESKTOP);
+    }
+    
+    body::before{
+        height:300px;
+    }
+    .faq_container{
+        padding-inline: 2em;
+        border-radius: 15px;
+    }
+    
+    .faq_header{
+        font-size: 3em;
+        column-gap: 0.5em;
+    }
+    
+    .question_container .question{
+        font-size: 1em;
+    }
+    
+    .question_container .question>.q_header .title {
+        width: 85%;
+    }
+    
+}
