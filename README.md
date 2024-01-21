@@ -33,7 +33,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [https://github.com/AnujPanthri/FAQ-Accordion-Challenge](https://github.com/AnujPanthri/FAQ-Accordion-Challenge)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Live Site URL: [https://anujpanthri.github.io/FAQ-Accordion-Challenge/](https://anujpanthri.github.io/FAQ-Accordion-Challenge/)
 
 ## My process
 
